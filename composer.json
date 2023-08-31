@@ -2,7 +2,7 @@
     "name": "potatoplank/clockify-to-format",
     "autoload": {
         "psr-4": {
-            "Potatoplank\\ClockifyToFormat\\": "src/"
+            "ClockifyToFormat\\": "src/"
         }
     },
     "authors": [
