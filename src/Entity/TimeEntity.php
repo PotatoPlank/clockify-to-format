@@ -26,6 +26,10 @@ class TimeEntity
             Throw new RuntimeException('This CSV contains the incorrect amount of columns! Expected ' . self::COLUMN_COUNT .' but found ' . count($export));
         }
         $time = new self();
+        if(empty($export[9]) || empty($export[10]) || empty($export[11]) || empty($export[12]))
+        {
+            Throw New \RuntimeException('This CSV contains an invalid date!');
+        }
 
         $time->project = $export[0];
         $time->client = $export[1];

@@ -7,6 +7,7 @@ use ClockifyToFormat\Entity\TimeEntity;
 class DetailedExport
 {
     private array $times = [];
+    private string $user = '';
     public static function fromCsv($path): DetailedExport
     {
         $export = new self();
@@ -19,7 +20,12 @@ class DetailedExport
                 $counter++;
                 continue;
             }
-            $export->times[] =  TimeEntity::fromDetailedExport($cells);
+            $entity = TimeEntity::fromDetailedExport($cells);
+            if(empty($export->user))
+            {
+                $export->user = $entity->user;
+            }
+            $export->times[] =  $entity;
         }
         fclose($csv);
 
@@ -27,10 +33,18 @@ class DetailedExport
     }
 
     /**
-     * @return array
+     * @return array<TimeEntity>
      */
     public function getTimes(): array
     {
         return $this->times;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUser(): string
+    {
+        return $this->user;
     }
 }
