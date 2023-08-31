@@ -1,0 +1,17 @@
+{
+    "name": "potatoplank/clockify-to-format",
+    "autoload": {
+        "psr-4": {
+            "Potatoplank\\ClockifyToFormat\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PotatoPlank",
+            "email": "potatoplank@protonmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.29"
+    }
+}
