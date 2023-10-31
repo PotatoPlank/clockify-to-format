@@ -68,6 +68,9 @@ class DefaultExcel
             }else if(!empty($time->project)){
                 $formattedClient .= " ({$time->project})";
             }
+            if(!empty($time->tags)){
+                $formattedClient .= " ({$time->tags})";
+            }
 
             if(!isset($days[$groupDate][$formattedClient]))
             {
